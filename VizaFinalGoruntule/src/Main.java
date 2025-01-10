@@ -28,7 +28,7 @@ public class Main {
         fnks.mesajYazdir("--------------------------------------------");
 
         fnks.mesajYazdir("Öğrenci Numaraları aşagıdadır;");
-        fnks.mesajYazdir("Ufuk Özdemir->1" +
+        fnks.mesajYazdir("Ufuk Özdemirr->1" +
                          "Mehmet Eren Adalı->2" +
                          "Hasan Tarık Seçgin->3" +
                          "Fatih Avşar->4" +

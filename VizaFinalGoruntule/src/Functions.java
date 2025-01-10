@@ -90,7 +90,7 @@ public class Functions {
         }else if (secim3 == 2){
 
         }else {
-            mesajYazdir("Yanlış seçim! Lütfen tekrar seçim yapın");
+            mesajYazdir("Yanlış seçim! Lüütfen tekrar seçim yapın");
             göruntülemeMenu(secim3);
         }
 

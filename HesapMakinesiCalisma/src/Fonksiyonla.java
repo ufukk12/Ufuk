@@ -38,7 +38,7 @@ public class Fonksiyonla {
         public double islemler(Scanner input, double sayi1, double sayi2, double aciDegeri){
             switch (seçimAl(input , Secim)){
                 case '+':
-                    mesajYazdir("lütfen toplanacak 2 sayıyı sırayla girin");
+                    mesajYazdir("lütfen toplanacak 2 tane sayıyı sırayla girin");
                     sayi1 =sayi1Al(input, sayi1);
                     sayi2 = sayi2Al(input, sayi2);
                     return sayi1+sayi2;
