@@ -2,7 +2,6 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="BubbleSort" target="21" />
       <module name="BubbleSort1" target="21" />
       <module name="BubbleSort1.main" target="21" />
       <module name="BubbleSort1.test" target="21" />

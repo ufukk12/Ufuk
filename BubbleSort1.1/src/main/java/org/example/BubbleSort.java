@@ -1,40 +1,42 @@
 package org.example;
 
 public class BubbleSort {
-    public int[] sort(int[] array , int sayac) {
 
+    public int[] bubbleSort(int[] array, int sayac) {
 
-        if (array.length <= 1) {
+        // sayac  ==  0
+        if(array.length < 2) {
             return array;
         }
 
-        if (sayac == array.length - 1) {
+        if(sayac == array.length-1) {
             return array;
         }
 
-        if (array[sayac] < array[sayac + 1]) {
-            return sort(array, sayac + 1);
-
-
-        }else {
+        if(array[sayac] > array[sayac+1]) {
             int temp = array[sayac];
-            array[sayac] = array[sayac+1];
-            array[sayac+1] = temp;
+            array[sayac] = array[sayac + 1];
+            array[sayac + 1] = temp;
             sayac = 0;
-
-            return sort(array,sayac);
+            return bubbleSort(array, sayac );
+        }else{
+            return bubbleSort(array, sayac + 1);
         }
+
+
+
+
+
+
     }
 
-    public int[] diziÜret(int uzunluk) {
-        int[] array = new int[uzunluk];
+    public int[] diziÜret(int[] array) {
 
-        for (int i = 0; i < uzunluk; i++) {
-            array[i] =(int)(Math.random()*100);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int)(Math.random()*100);
         }
         return array;
     }
 
-//q
 }
 

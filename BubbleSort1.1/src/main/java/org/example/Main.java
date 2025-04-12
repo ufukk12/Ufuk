@@ -5,33 +5,25 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         /*
-         * Bubble sort ikili kıyaslama yapar.
-         *
-         * dizi[i] < dizi[i+1];
-         * i++
+     Bubble sort basit olarak sıralı ikili kontrolü yapar
+              dizi[i+1]<?dizi[i]
+          evetse yer değiştir devam et
+          hayırsa i++;
          */
 
-        int uzunluk;
+        BubbleSort bs = new BubbleSort();
 
-        Scanner scn = new Scanner(System.in);
+        int[] dizi = {10 , 2 , 7 , 5 , 11 , 3 , 9};
+        int[] sıralanmışDizi = bs.bubbleSort(dizi , 0);
 
-        System.out.println("Lütfen sıralanacak dizi uzunluğu girin: ");
-        uzunluk = scn.nextInt();
-
-
-
-
-        BubbleSort sort = new BubbleSort();
-
-        int dizi[] = sort.diziÜret(uzunluk);
-
-        int sıralanmısDizi[] = sort.sort(dizi , 0);
-
-        for (int i = 0; i < dizi.length; i++){
-            System.out.println(sıralanmısDizi[i]);
+        for (int i = 0; i < sıralanmışDizi.length; i++){
+            System.out.println(sıralanmışDizi[i]);
         }
 
-//a
+
+
+
+
 
     }
 }
