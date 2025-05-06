@@ -25,11 +25,15 @@ public class Main {
         System.out.println("------------------------------------------------------------------");
 
         //-------------------------------------------------------------------------------------
-        int[] QuickSort = sort.QuickSort(dizi);
+        sort.QuickSort(dizi, 0 , dizi.length-1);
         System.out.println("3 - Quick Sort");
-        sort.diziYazdir(QuickSort);
+        sort.diziYazdir(dizi);
         System.out.println("-----------------------------------------------------------------");
 
+        //-------------------------------------------------------------------------------------
+        sort.countingSort(dizi);
+        System.out.println("4 - Counting Sort");
+        sort.diziYazdir(dizi);
 
 
     }

@@ -2,10 +2,10 @@ package org.example;
 
 public class SorthingAlgorithms {
 
-    public void swap (int a, int b) {
-        int temp = a;
-        a = b;
-        b = temp;
+    private void swap (int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
     }
 
     public int[] diziUret(int uzunluk){
@@ -33,9 +33,7 @@ public class SorthingAlgorithms {
         }
 
         if(dizi[sayac] > dizi[sayac + 1]){
-            int temp = dizi[sayac];
-            dizi[sayac] = dizi[sayac + 1];
-            dizi[sayac + 1] = temp;
+            swap(dizi,sayac,sayac+1);
             sayac = 0;
             return bubbleSort(dizi,sayac);
         }else {
@@ -53,9 +51,7 @@ public class SorthingAlgorithms {
             int minIndex = i;
             for (int j = i + 1; j < dizi.length; j++) {
                 if (dizi[minIndex] > dizi[j]) {
-                    int temp = dizi[minIndex];
-                    dizi[minIndex] = dizi[j];
-                    dizi[j] = temp;
+                    swap(dizi, minIndex, j);
                 }else {
                     minIndex = j;
                 }
@@ -64,9 +60,61 @@ public class SorthingAlgorithms {
         return dizi;
     }
 
-    public int[] QuickSort(int[] dizi) {
+    public void QuickSort(int[] dizi , int ilk , int son) {
 
-        return null;
+        if (ilk < son){
+            int pivot =parçayaAyir(dizi,ilk,son);
+            QuickSort(dizi,ilk,pivot - 1);
+            QuickSort(dizi,pivot+1,son);
+        }
+
+
+    }
+
+    private int parçayaAyir(int[] dizi , int ilk , int son) {
+        int pivotElmn = dizi[son];
+        int sayac = (ilk - 1);
+
+        for (int j = 0 ; j <= (son-1) ; j++) {
+            if (dizi[j] < pivotElmn) {
+                sayac++;
+                swap(dizi,j, sayac);
+            }
+        }
+
+        swap(dizi,sayac+1,son);
+        return (sayac + 1);
+    }
+
+    private int maxBul(int[] arr){
+        int max = 0;
+        for (int num : arr) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        return max;
+    }
+
+    public int[] countingSort(int[] dizi) {
+        int max = maxBul(dizi);
+        int[] countArr = new int[max+1];
+        int[] sortedArr = new int[dizi.length];
+
+        for (int i = 0; i < dizi.length; i++) {
+            countArr[dizi[i]]++;
+        }
+
+        int k = 0;
+        for (int i = 0; i < max+1; i++) {
+            if(countArr[i] != 0){
+                for (int j = 0; j < countArr[i] ; j++) {
+                    sortedArr[k] = i;
+                    k++;
+                }
+            }
+        }
+        return sortedArr;
     }
 }
 

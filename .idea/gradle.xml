@@ -12,6 +12,15 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/04.04.25_Counting" />
+        <option name="gradleHome" value="$USER_HOME$/Desktop/gradle-8.11.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/04.04.25_Counting" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/BubbleSort1.1" />
         <option name="gradleHome" value="$USER_HOME$/Desktop/gradle-8.11.1" />
         <option name="modules">
@@ -41,6 +50,11 @@
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/SorthingAlgorithms" />
         <option name="gradleHome" value="$USER_HOME$/Desktop/gradle-8.11.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/SorthingAlgorithms" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>
