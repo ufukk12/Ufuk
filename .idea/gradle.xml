@@ -30,6 +30,15 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/MatrixProcess" />
+        <option name="gradleHome" value="$USER_HOME$/Desktop/gradle-8.11.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/MatrixProcess" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/SelectionSort" />
         <option name="gradleHome" value="$USER_HOME$/Desktop/gradle-8.11.1" />
         <option name="modules">
