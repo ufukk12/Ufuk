@@ -5,6 +5,9 @@
       <module name="BubbleSort1" target="21" />
       <module name="BubbleSort1.main" target="21" />
       <module name="BubbleSort1.test" target="21" />
+      <module name="MatrisDeneme" target="21" />
+      <module name="MatrisDeneme.main" target="21" />
+      <module name="MatrisDeneme.test" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HesapMakinesiCalisma/HesapMakinesiCalisma.iml" filepath="$PROJECT_DIR$/HesapMakinesiCalisma/HesapMakinesiCalisma.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SorthingAlgorithms.iml" filepath="$PROJECT_DIR$/SorthingAlgorithms.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Ufuk.iml" filepath="$PROJECT_DIR$/.idea/Ufuk.iml" />
       <module fileurl="file://$PROJECT_DIR$/VizaFinalGoruntule/VizaFinalGoruntule.iml" filepath="$PROJECT_DIR$/VizaFinalGoruntule/VizaFinalGoruntule.iml" />
     </modules>

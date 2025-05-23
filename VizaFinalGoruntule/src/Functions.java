@@ -81,8 +81,8 @@ public class Functions {
 
     public int göruntülemeMenu(int secim3){
         mesajYazdir("Lütfen görüntülemek istediğiniz işlemin no sunu girin:");
-        mesajYazdir("öğrenci notu görüntüle -->1");
-        mesajYazdir("başarılı öğrencileri görüntüle-->2");
+        mesajYazdir("küçükten büyüğe fiyat sıralaması -->1");
+        mesajYazdir("sepet-->2");
         secim3 = input.nextInt();
 
         if (secim3 == 1){

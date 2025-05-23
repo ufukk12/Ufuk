@@ -3,12 +3,14 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/../Algoritma_ve_Prog_II_Ders_Uygulamalari/BubbleSort" />
+    <file type="web" url="file://$PROJECT_DIR$/04.04.25_Counting" />
     <file type="web" url="file://$PROJECT_DIR$/BubbleSort1" />
     <file type="web" url="file://$PROJECT_DIR$/BubbleSort1.1" />
     <file type="web" url="file://$PROJECT_DIR$/MatrisDeneme" />
     <file type="web" url="file://$PROJECT_DIR$/SelectionSort" />
+    <file type="web" url="file://$PROJECT_DIR$/SorthingAlgorithms" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="temurin-21" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/out" />
+    <output url="file://$PROJECT_DIR$/VizaFinalGoruntule/out" />
   </component>
 </project>
