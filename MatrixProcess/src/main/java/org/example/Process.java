@@ -4,57 +4,107 @@ import java.util.Scanner;
 
 public class Process {
 
-    private int rows;
-    private int coulums;
 
-    public Process(int rows, int coulums) {
-        this.rows = rows;
-        this.coulums = coulums;
-    }
 
     Scanner input = new Scanner(System.in);
     public void yazdır(String input){
         System.out.println(input);
     }
 
-    public int getRow(int row){
-        row=input.nextInt();
+    public int getRow() {
+        int row = input.nextInt();
 
-        if (row<1){
+        if (row < 1) {
             yazdır("Matrisin Satır Sayısı 1 den küçük olamaz. Tekrar Satır Değeri Girin.");
-            getRow(row);
+            return getRow();
+        } else {
+            return row;
         }
-        return row;
-
     }
 
-    public int getColumn(int column){
-        column=input.nextInt();
+    public int getColumn(){
+        int column = input.nextInt();
 
         if (column<1){
             yazdır("Matrisin Satır Sayısı 1 den küçük olamaz. Tekrar Satır Değeri Girin.");
-            getRow(column);
+            return getColumn();
+        }else{
+            return column;
         }
-        return column;
+
     }
 
-    public int[] results(int[] result){
-        for (int i=0;i<result.length;i++){
-            result[i]=input.nextInt();
-        }
-        return result;
-    }
-
-    private int[][] extraMatrix(int[][] matrix , int[] result){
-        int[][] extraMatrix=new int[rows][coulums + 1];
+    public int[] results(int rows){
+        int[] results = new int[rows];
         for (int i=0;i<rows;i++){
-            extraMatrix[i][coulums+1]= input.nextInt();
+            results[i]=input.nextInt();
+        }
+        return results;
+    }
+
+    private int[][] extraMatrix(int[][] matrix , int[] result ){
+        int matrixRows = matrix.length;
+        int matrixColumns = matrix[0].length;
+
+        int[][] extraMatrix=new int[matrixRows][matrixColumns+1];
+        for (int i=0;i< matrix.length;i++){
+            extraMatrix[i][matrix[0].length]= result[i];
         }
 
         return extraMatrix;
     }
 
+    private int findPivot(int[][] matrix , int row){
+        for (int i=0;i<matrix[0].length;i++){
+            if(matrix[row][i] != 0) {
+                return i;
+            }
+         }
+        return -1;
+     }
 
+    private int[][] eshelonForm(int[][] matrix , int sayac){
+        int matrixRow = matrix.length;
+        int matrixColumn = matrix[0].length;
 
+        int pivotİndex = findPivot(matrix, sayac );
+        int pivot = matrix[sayac][pivotİndex];
 
-}
+        if (sayac == (matrixRow-1)){
+            return matrix;
+        }
+
+        for(int i=0;i<matrixColumn;i++){
+            matrix[sayac+1][i] = (pivot*-1)/(matrix[sayac+1][0])+matrix[sayac+1][i];
+        }
+        sayac++;
+        return eshelonForm(matrix , sayac);
+    }
+
+    public double[] solveLineerSystem(int[][] matrix , int[] result ){
+        int[][] extraMatrix = extraMatrix(matrix,result);
+        int[][] eshelonMatrix = eshelonForm(extraMatrix ,0);
+        int matrixRows = eshelonMatrix.length;
+        int matrixColumns = eshelonMatrix[0].length;
+
+        //bilinmeyenlerin cevaplarının depolanacagı küme
+        double[] solution = new double[matrixRows*matrixColumns];
+
+        for(int i=0; i<matrixColumns-1; i++){
+            if (eshelonMatrix[matrixRows-1][i] == 0 & eshelonMatrix[matrixRows-1][matrixColumns-1] == 0){
+                yazdır("bu sistemin çözüm kümesi sonsuz elemanlıdır");
+
+            }else if(matrix[matrixRows-1][i] == 0 & matrix[matrixRows-1][matrixColumns-1] != 0){
+                yazdır("Uğraşma kiral çözemezsin bunu bu sistem onun seni niye sebebsizce bırakması ile aynı");
+
+            }else {
+                for (int k = 0; k < solution.length; k++){
+                    solution[i] = 0;
+                }
+            }
+
+            }
+        return solution;
+        }
+    }
+
