@@ -47,6 +47,14 @@ public class Process {
         int matrixColumns = matrix[0].length;
 
         int[][] extraMatrix=new int[matrixRows][matrixColumns+1];
+
+        for(int i=0;i<matrixRows;i++){
+            for(int j=0;j<matrixColumns; j++){
+                extraMatrix[i][j]=matrix[i][j];
+            }
+
+        }
+
         for (int i=0;i< matrix.length;i++){
             extraMatrix[i][matrix[0].length]= result[i];
         }
@@ -73,10 +81,12 @@ public class Process {
         if (sayac == (matrixRow-1)){
             return matrix;
         }
-
-        for(int i=0;i<matrixColumn;i++){
-            matrix[sayac+1][i] = (pivot*-1)/(matrix[sayac+1][0])+matrix[sayac+1][i];
+        if(matrix[sayac+1][pivotİndex] != 0){
+            for(int i=0;i<matrixColumn;i++){
+                matrix[sayac+1][i] -= ((matrix[sayac+1][pivotİndex]) / pivot) + matrix[sayac+1][i] - 1;
+            }
         }
+
         sayac++;
         return eshelonForm(matrix , sayac);
     }
@@ -88,7 +98,7 @@ public class Process {
         int matrixColumns = eshelonMatrix[0].length;
 
         //bilinmeyenlerin cevaplarının depolanacagı küme
-        double[] solution = new double[matrixRows*matrixColumns];
+        double[] solution = new double[matrixRows];
 
         for(int i=0; i<matrixColumns-1; i++){
             if (eshelonMatrix[matrixRows-1][i] == 0 & eshelonMatrix[matrixRows-1][matrixColumns-1] == 0){
