@@ -15,7 +15,7 @@ public class Main {
         process.yazdır("Lütfen Matrisin Sütun Sayısını Giriniz");
         coulum = process.getColumn();
 
-        int[][] matrix = new int[rows][coulum];
+        double[][] matrix = new double[rows][coulum];
 
         process.yazdır("Lütfen matrisin sırasıyla satırlarını girin");
         for (int i = 0; i < rows; i++) {
@@ -27,7 +27,7 @@ public class Main {
 
         }
         process.yazdır("Lütfen sırasıyla yukarıdan aşagı olacak sekilde sonucları girin");
-        int[] results = process.results(rows);
+        double[] results = process.results(rows);
 
         double[] çözümler = process.solveLineerSystem(matrix , results);
 

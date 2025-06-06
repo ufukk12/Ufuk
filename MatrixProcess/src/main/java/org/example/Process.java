@@ -34,19 +34,19 @@ public class Process {
 
     }
 
-    public int[] results(int rows){
-        int[] results = new int[rows];
+    public double[] results(int rows){
+        double[] results = new double[rows];
         for (int i=0;i<rows;i++){
             results[i]=input.nextInt();
         }
         return results;
     }
 
-    private int[][] extraMatrix(int[][] matrix , int[] result ){
+    private double[][] extraMatrix(double[][] matrix , double[] result ){
         int matrixRows = matrix.length;
         int matrixColumns = matrix[0].length;
 
-        int[][] extraMatrix=new int[matrixRows][matrixColumns+1];
+        double[][] extraMatrix = new double[matrixRows][matrixColumns+1];
 
         for(int i=0;i<matrixRows;i++){
             for(int j=0;j<matrixColumns; j++){
@@ -62,7 +62,7 @@ public class Process {
         return extraMatrix;
     }
 
-    private int findPivot(int[][] matrix , int row){
+    private int findPivot(double[][] matrix , int row){
         for (int i=0;i<matrix[0].length;i++){
             if(matrix[row][i] != 0) {
                 return i;
@@ -71,31 +71,34 @@ public class Process {
         return -1;
      }
 
-    private int[][] eshelonForm(int[][] matrix , int sayac){
+    private double[][] eshelonForm(double[][] matrix , int sayac){
         int matrixRow = matrix.length;
         int matrixColumn = matrix[0].length;
 
         int pivotİndex = findPivot(matrix, sayac );
-        int pivot = matrix[sayac][pivotİndex];
+        double pivot = matrix[sayac][pivotİndex];
 
         if (sayac == (matrixRow-1)){
             return matrix;
         }
-        if(matrix[sayac+1][pivotİndex] != 0){
+
+        if(matrix[sayac+1][matrixColumn-1] != 0){
             for(int i=0;i<matrixColumn;i++){
-                matrix[sayac+1][i] -= ((matrix[sayac+1][pivotİndex]) / pivot) + matrix[sayac+1][i] - 1;
+                matrix[sayac+1][i] += -1*(matrix[sayac][i])*(matrix[sayac+1][pivotİndex] / pivot);
             }
         }
+
+
 
         sayac++;
         return eshelonForm(matrix , sayac);
     }
 
-    public double[] solveLineerSystem(int[][] matrix , int[] result ){
-        int[][] extraMatrix = extraMatrix(matrix,result);
-        int[][] eshelonMatrix = eshelonForm(extraMatrix ,0);
-        int matrixRows = eshelonMatrix.length;
-        int matrixColumns = eshelonMatrix[0].length;
+    public double[] solveLineerSystem(double[][] matrix , double[] result ){
+        double[][] extraMatrix = extraMatrix(matrix,result);
+        double[][] eshelonMatrix = eshelonForm(extraMatrix ,0);
+        int matrixRows = matrix.length;
+        int matrixColumns = matrix[0].length;
 
         //bilinmeyenlerin cevaplarının depolanacagı küme
         double[] solution = new double[matrixRows];
@@ -103,9 +106,11 @@ public class Process {
         for(int i=0; i<matrixColumns-1; i++){
             if (eshelonMatrix[matrixRows-1][i] == 0 & eshelonMatrix[matrixRows-1][matrixColumns-1] == 0){
                 yazdır("bu sistemin çözüm kümesi sonsuz elemanlıdır");
+                return null;
 
             }else if(matrix[matrixRows-1][i] == 0 & matrix[matrixRows-1][matrixColumns-1] != 0){
                 yazdır("Uğraşma kiral çözemezsin bunu bu sistem onun seni niye sebebsizce bırakması ile aynı");
+                return null;
 
             }else {
                 for (int k = 0; k < solution.length; k++){
