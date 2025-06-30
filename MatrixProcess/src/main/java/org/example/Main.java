@@ -31,8 +31,9 @@ public class Main {
 
         double[] çözümler = process.solveLineerSystem(matrix , results);
 
-        for (double num : çözümler){
-            System.out.println(num);
+        System.out.println("----------ÇÖZÜMLR-------------");
+        for (int i = 0; i < rows; i++) {
+            System.out.println("x"+(i+1)+  "=" + çözümler[i]);
         }
 
     }
